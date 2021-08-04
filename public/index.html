@@ -11,10 +11,20 @@
   <link href="css/style.css" rel="stylesheet">
 </head>
 
-<body>
-    <object data="res/plastichood.pdf" type="application/pdf" frameborder="0" width="100%" style="width: 100vw; height: 100vh;"></object>>
-        <!--<embed style="width: 100vw; height: 100vh;" src="res/plastichood.pdf"/>-->
-    </object>
-</body>
+<body style="margin: 0px">
+    <div id="adobe-dc-view"></div>
+    <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
+    <script type="text/javascript">
+       document.addEventListener("adobe_dc_view_sdk.ready", function()
+       {
+           var adobeDCView = new AdobeDC.View({clientId: "9db4176743204a09b3613dfc83a073a2", divId: "adobe-dc-view"});
+           adobeDCView.previewFile(
+          {
+             content:   {location: {url: "res/plastichood.pdf"}},
+             metaData: {fileName: "plastichood.pdf"}
+          });
+       });
+    </script>
+   </body>
 
 </html>
